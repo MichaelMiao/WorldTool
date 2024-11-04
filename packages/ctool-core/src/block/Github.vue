@@ -1,14 +1,3 @@
-<template>
-    <Align class="ctool-github" gap="none">
-        <span class="ctool-github-name" @click="openUrl(`https://ctool.dev/`)">
-            <Icon name="github" :size="12"/> <strong>Ctool</strong>
-        </span>
-        <span class="ctool-github-star" v-if="star > 0" @click="openUrl(`https://github.com/baiy/Ctool`)">
-            {{ `${star}`.replace(/(\d)(?=(\d{3})+$)/g, "$1,") }}
-        </span>
-    </Align>
-</template>
-
 <script setup lang="ts">
 import {onMounted} from "vue"
 import axios from "axios";
@@ -20,16 +9,6 @@ const CACHE_NAME = 'github_star';
 let star = $ref(storage.get<number>(CACHE_NAME) || 0)
 
 onMounted(() => {
-    if (star === 0) {
-        axios({url: 'https://api.github.com/repos/baiy/Ctool'}).then(({data}) => {
-            const count = data.stargazers_count ? parseInt(data.stargazers_count) : 0
-            if (count > 0) {
-                star = count
-                storage.setNoVersion(CACHE_NAME, count, 3700)
-            }
-        }).catch(() => {
-        });
-    }
 })
 
 </script>

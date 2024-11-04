@@ -71,37 +71,6 @@ const toggle = () => {
 
 
 const load = () => {
-// 加载缓存
-    let lists = storage.get<ItemType[]>(CACHE_NAME)
-    if (lists !== null) {
-        return init(lists)
-    }
-    try {
-        // 远程加载
-        axios.get<{ code: number, data: ItemType[], info: string }>('https://www.baiy.org/chrome_tool/notice/', {
-            responseType: 'json',
-            params: {
-                i: getCurrentLocale(),
-                v: version,
-                p: platform.name,
-                u: getUserUuid(),
-                r: Math.random()
-            }
-        }).then(({data}) => {
-            if (data.code !== 0) {
-                throw new Error(data.info)
-            }
-            let i = 1;
-            const result = (data.data || []).map(item => {
-                item.key = i++
-                return item
-            })
-            storage.set(CACHE_NAME, result, result.length > 0 ? CACHE_EXPIRY : CACHE_EMPTY_EXPIRY)
-            init(result)
-        }).catch(() => {
-        });
-    } catch (e) {
-    }
 }
 
 const open = (item: ItemType) => {

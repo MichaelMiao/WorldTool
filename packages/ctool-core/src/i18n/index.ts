@@ -5,7 +5,7 @@ import event from "@/event";
 
 export const LOCALE_DETAIL = locales.detail
 // 默认语言
-export const DEFAULT_LOCALE = platform.getLocale()
+export const DEFAULT_LOCALE = "en"
 // 运行时当前语言
 let currentLocale: Locale = "_default"
 

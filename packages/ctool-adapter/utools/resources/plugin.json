@@ -2,7 +2,7 @@
     "pluginName": "Ctool",
     "description": "Ctool 程序开发常用工具",
     "author": "baiy",
-    "homepage": "https://github.com/baiy/Ctool",
+    "homepage": "https://github.com/MichaelMiao/WorldTool",
     "main": "tool.html",
     "version": "##version##",
     "logo": "icon/icon_utools.png",
