@@ -1,7 +1,11 @@
 <template>
     <div class="ctool-header">
         <div class="ctool-header-top">
-            <Github />
+            <Align>
+                <a href="https://rebase-sg.com" target="_blank" style="margin-left: 8px; color: var(--ctool-primary); text-decoration: none;">
+                    Rebase-SG
+                </a>
+            </Align>
             <div class="ctool-header-top-left">
                 <div
                     v-for="name in allCategories"

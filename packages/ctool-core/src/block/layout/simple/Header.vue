@@ -1,8 +1,9 @@
 <template>
     <div class="ctool-header">
         <Align>
-            <Github/>
-            <span>{{ $t(`tool_${storeOperate.items.tool}`) }}</span>
+            <a href="https://rebase-sg.com" target="_blank" style="margin-left: 8px; color: var(--ctool-primary); text-decoration: none;">
+                Rebase-SG
+            </a>
         </Align>
         <div class="ctool-header-middle" :class="features.length > 1 ? `ctool-header-middle-center` : ''">
             <template v-if="features.length < 1">
